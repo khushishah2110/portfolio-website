@@ -2,7 +2,8 @@
 // Helper function to get correct asset path based on environment
 const getAssetPath = (path) => {
   const base = import.meta.env.BASE_URL || '/';
-  return `${base}${path}`.replace(/\/+/g, '/');
+  const fullPath = `${base}${path}`.replace(/\/+/g, '/');
+  return fullPath;
 };
 
 export const projectsData = [
