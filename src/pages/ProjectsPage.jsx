@@ -11,9 +11,9 @@ import {
   Eye,
   Heart
 } from 'lucide-react';
-import './PortfolioPage.css';
+import './ProjectsPage.css';
 
-const PortfolioPage = () => {
+const ProjectsPage = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [activeFilter, setActiveFilter] = useState('all');
@@ -141,9 +141,9 @@ const PortfolioPage = () => {
     : allProjects.filter(project => project.category === activeFilter);
 
   return (
-    <div className="portfolio-page" ref={ref}>
+    <div className="projects-page" ref={ref}>
       {/* Hero Section */}
-      <section className="portfolio-page-hero">
+      <section className="projects-page-hero">
         <div className="container">
           <motion.div
             className="hero-content"
@@ -158,11 +158,11 @@ const PortfolioPage = () => {
               transition={{ delay: 0.2 }}
             >
               <Star size={18} />
-              <span>Complete Portfolio</span>
+              <span>Complete Projects</span>
             </motion.div>
 
             <h1 className="hero-title">
-              My Complete <span className="gradient-text">Portfolio</span>
+              My Complete <span className="gradient-text">Projects</span>
             </h1>
 
             <p className="hero-subtitle">
@@ -311,4 +311,4 @@ const PortfolioPage = () => {
   );
 };
 
-export default PortfolioPage;
+export default ProjectsPage;

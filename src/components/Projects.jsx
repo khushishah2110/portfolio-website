@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { Play, ArrowRight, Star } from 'lucide-react';
-import './Portfolio.css';
+import './Projects.css';
 
-const Portfolio = () => {
+const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -54,7 +54,7 @@ const Portfolio = () => {
   ];
 
   return (
-    <section id="portfolio" className="portfolio section" ref={ref}>
+    <section id="projects" className="projects section" ref={ref}>
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -62,7 +62,7 @@ const Portfolio = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="section-title">
-            My <span className="gradient-text">Portfolio</span>
+            My <span className="gradient-text">Projects</span>
           </h2>
           <p className="section-subtitle">
             Showcasing my best work and successful campaigns
@@ -70,19 +70,19 @@ const Portfolio = () => {
         </motion.div>
 
         {/* Masonry Grid Layout */}
-        <div className="portfolio-masonry">
+        <div className="projects-masonry">
           {featuredProjects.map((project, index) => (
             <motion.div
               key={project.id}
-              className={`portfolio-item ${project.size}`}
+              className={`projects-item ${project.size}`}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -8 }}
             >
-              <div className="portfolio-image">
+              <div className="projects-image">
                 <img src={project.image} alt={project.title} loading="lazy" />
-                <div className="portfolio-overlay">
+                <div className="projects-overlay">
                   <motion.div
                     className="overlay-content"
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -98,11 +98,11 @@ const Portfolio = () => {
                 </div>
               </div>
 
-              <div className="portfolio-content">
-                <h3 className="portfolio-title">{project.title}</h3>
-                <p className="portfolio-description">{project.description}</p>
+              <div className="projects-content">
+                <h3 className="projects-title">{project.title}</h3>
+                <p className="projects-description">{project.description}</p>
 
-                <div className="portfolio-stats">
+                <div className="projects-stats">
                   {Object.entries(project.stats).map(([key, value]) => (
                     <div key={key} className="stat">
                       <span className="stat-value">{value}</span>
@@ -117,12 +117,12 @@ const Portfolio = () => {
 
         {/* View All Projects Button */}
         <motion.div
-          className="portfolio-cta"
+          className="projects-cta"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <Link to="/portfolio">
+          <Link to="/projects">
             <motion.div
               className="view-all-btn"
               whileHover={{ scale: 1.05, boxShadow: '0 15px 40px rgba(99, 102, 241, 0.3)' }}
@@ -132,11 +132,11 @@ const Portfolio = () => {
               <ArrowRight size={20} />
             </motion.div>
           </Link>
-          <p className="cta-text">Explore my complete portfolio with 50+ successful projects</p>
+          <p className="cta-text">Explore my complete project collection with 50+ successful projects</p>
         </motion.div>
       </div>
     </section>
   );
 };
 
-export default Portfolio;
+export default Projects;

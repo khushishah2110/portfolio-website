@@ -44,26 +44,26 @@ const Contact = () => {
     {
       icon: <Mail size={24} />,
       title: 'Email',
-      value: 'your.email@example.com',
-      link: 'mailto:your.email@example.com'
+      value: 'shahkhushi211004@gmail.com',
+      link: 'mailto:shahkhushi211004@gmail.com'
     },
     {
       icon: <Phone size={24} />,
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      value: '+91 84336 36094',
+      link: 'tel:+918433636094'
     },
     {
       icon: <MapPin size={24} />,
       title: 'Location',
-      value: 'Your City, Country',
+      value: 'Mumbai, India',
       link: null
     }
   ];
 
   const socialLinks = [
     { icon: <Instagram size={20} />, name: 'Instagram', url: 'https://instagram.com', color: '#E4405F' },
-    { icon: <Linkedin size={20} />, name: 'LinkedIn', url: 'https://linkedin.com', color: '#0077B5' }
+    { icon: <Linkedin size={20} />, name: 'LinkedIn', url: 'https://www.linkedin.com/in/khushi-shah-37984834b/', color: '#0077B5' }
   ];
 
   return (

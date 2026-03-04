@@ -38,7 +38,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              Hi, I'm <span className="gradient-text">Your Name</span>
+              Hi, I'm <span className="gradient-text">Khushi Shah</span>
             </motion.h1>
 
             <motion.h2
@@ -76,7 +76,7 @@ const Hero = () => {
                 Get In Touch
               </motion.button>
               <motion.a
-                href="#portfolio"
+                href="#projects"
                 className="btn btn-secondary"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -101,7 +101,7 @@ const Hero = () => {
                 <Instagram size={24} />
               </motion.a>
               <motion.a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/khushi-shah-37984834b/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.2, color: '#0077B5' }}
@@ -110,7 +110,7 @@ const Hero = () => {
                 <Linkedin size={24} />
               </motion.a>
               <motion.a
-                href="mailto:your.email@example.com"
+                href="mailto:shahkhushi211004@gmail.com"
                 whileHover={{ scale: 1.2, color: '#6366f1' }}
                 whileTap={{ scale: 0.9 }}
               >

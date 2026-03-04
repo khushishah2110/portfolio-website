@@ -23,15 +23,15 @@ const Navbar = () => {
     { name: 'About', href: '#about', route: '/' },
     { name: 'Services', href: '#services', route: '/' },
     { name: 'Experience', href: '#work-experience', route: '/' },
-    { name: 'Portfolio', href: '/portfolio', route: '/portfolio' },
+    { name: 'Projects', href: '/projects', route: '/projects' },
     { name: 'Contact', href: '#contact', route: '/' }
   ];
 
   const handleNavClick = (item) => {
     setIsMobileMenuOpen(false);
 
-    if (item.route === '/portfolio') {
-      navigate('/portfolio');
+    if (item.route === '/projects') {
+      navigate('/projects');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       if (location.pathname !== '/') {
@@ -65,7 +65,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span className="gradient-text">Portfolio</span>
+            <span className="gradient-text">Khushi Shah</span>
           </motion.div>
 
           <div className="nav-links desktop">

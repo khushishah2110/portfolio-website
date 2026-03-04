@@ -12,7 +12,7 @@ const Footer = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p>&copy; 2026 Your Name. All rights reserved.</p>
+          <p>&copy; 2026 Khushi Shah. All rights reserved.</p>
           <p className="footer-tagline">Crafted with passion and creativity</p>
         </motion.div>
       </div>

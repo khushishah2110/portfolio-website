@@ -1,10 +1,10 @@
-.portfolio-page {
+.projects-page {
   min-height: 100vh;
   background: var(--dark);
 }
 
 /* Hero Section */
-.portfolio-page-hero {
+.projects-page-hero {
   position: relative;
   min-height: 70vh;
   display: flex;
@@ -379,7 +379,7 @@
 }
 
 @media (max-width: 640px) {
-  .portfolio-page-hero {
+  .projects-page-hero {
     padding: 6rem 0 3rem;
     min-height: 60vh;
   }
