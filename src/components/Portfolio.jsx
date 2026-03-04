@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { Play, ArrowRight, Star } from 'lucide-react';
@@ -121,15 +122,16 @@ const Portfolio = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <motion.a
-            href="/portfolio"
-            className="view-all-btn"
-            whileHover={{ scale: 1.05, boxShadow: '0 15px 40px rgba(99, 102, 241, 0.3)' }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span>View All Projects</span>
-            <ArrowRight size={20} />
-          </motion.a>
+          <Link to="/portfolio">
+            <motion.div
+              className="view-all-btn"
+              whileHover={{ scale: 1.05, boxShadow: '0 15px 40px rgba(99, 102, 241, 0.3)' }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span>View All Projects</span>
+              <ArrowRight size={20} />
+            </motion.div>
+          </Link>
           <p className="cta-text">Explore my complete portfolio with 50+ successful projects</p>
         </motion.div>
       </div>
