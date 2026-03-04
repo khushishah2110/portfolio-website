@@ -92,7 +92,7 @@ const Hero = () => {
               transition={{ delay: 0.7 }}
             >
               <motion.a
-                href="https://instagram.com"
+                href="https://www.instagram.com/life.with.khushiiii/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.2, color: '#E4405F' }}

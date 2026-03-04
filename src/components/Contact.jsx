@@ -62,7 +62,7 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { icon: <Instagram size={20} />, name: 'Instagram', url: 'https://instagram.com', color: '#E4405F' },
+    { icon: <Instagram size={20} />, name: 'Instagram', url: 'https://www.instagram.com/life.with.khushiiii/', color: '#E4405F' },
     { icon: <Linkedin size={20} />, name: 'LinkedIn', url: 'https://www.linkedin.com/in/khushi-shah-37984834b/', color: '#0077B5' }
   ];
 
