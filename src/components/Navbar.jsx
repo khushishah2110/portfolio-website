@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import './Navbar.css';
@@ -6,6 +7,8 @@ import './Navbar.css';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,18 +19,33 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Home', href: '#home', route: '/' },
+    { name: 'About', href: '#about', route: '/' },
+    { name: 'Services', href: '#services', route: '/' },
+    { name: 'Portfolio', href: '/portfolio', route: '/portfolio' },
+    { name: 'Contact', href: '#contact', route: '/' }
   ];
 
-  const handleNavClick = (href) => {
+  const handleNavClick = (item) => {
     setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+
+    if (item.route === '/portfolio') {
+      navigate('/portfolio');
+    } else {
+      if (location.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => {
+          const element = document.querySelector(item.href);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        const element = document.querySelector(item.href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     }
   };
 
@@ -55,7 +73,7 @@ const Navbar = () => {
                 href={item.href}
                 onClick={(e) => {
                   e.preventDefault();
-                  handleNavClick(item.href);
+                  handleNavClick(item);
                 }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -90,7 +108,7 @@ const Navbar = () => {
               href={item.href}
               onClick={(e) => {
                 e.preventDefault();
-                handleNavClick(item.href);
+                handleNavClick(item);
               }}
               whileHover={{ x: 10, color: '#6366f1' }}
             >
