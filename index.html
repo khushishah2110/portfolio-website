@@ -5,6 +5,16 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>portfolio-website</title>
+    <script>
+      // Restore path from sessionStorage for GitHub Pages SPA
+      (function() {
+        var redirect = sessionStorage.getItem('redirectPath');
+        if (redirect && redirect !== window.location.pathname) {
+          sessionStorage.removeItem('redirectPath');
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
