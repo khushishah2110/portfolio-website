@@ -31,6 +31,7 @@ const Navbar = () => {
 
     if (item.route === '/portfolio') {
       navigate('/portfolio');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       if (location.pathname !== '/') {
         navigate('/');

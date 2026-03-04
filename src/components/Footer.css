@@ -1,0 +1,30 @@
+.footer {
+  background: linear-gradient(180deg, var(--dark-light) 0%, #0a0f1f 100%);
+  padding: 3rem 0;
+  border-top: 1px solid rgba(99, 102, 241, 0.2);
+  position: relative;
+}
+
+.footer-content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-content p {
+  color: var(--gray-light);
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 2rem 0;
+  }
+}

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { GraduationCap, Award, Target, TrendingUp } from 'lucide-react';
+import { GraduationCap, Award, Target, TrendingUp, BookOpen, CheckCircle } from 'lucide-react';
 import './About.css';
 
 const About = () => {
@@ -22,6 +22,27 @@ const About = () => {
     { icon: <Award />, number: '50+', label: 'Projects Completed' },
     { icon: <Target />, number: '30+', label: 'Happy Clients' },
     { icon: <TrendingUp />, number: '2M+', label: 'Total Reach' }
+  ];
+
+  const courses = [
+    {
+      title: 'Advanced Social Media Marketing',
+      platform: 'Coursera',
+      year: '2023',
+      skills: ['Instagram Growth', 'Content Strategy', 'Analytics']
+    },
+    {
+      title: 'Professional Video Editing Masterclass',
+      platform: 'Udemy',
+      year: '2023',
+      skills: ['Premiere Pro', 'After Effects', 'Color Grading']
+    },
+    {
+      title: 'Digital Marketing Certification',
+      platform: 'Google',
+      year: '2022',
+      skills: ['SEO', 'SEM', 'Digital Strategy']
+    }
   ];
 
   return (
@@ -130,6 +151,48 @@ const About = () => {
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Courses & Certifications Section */}
+        <motion.div
+          className="courses-section"
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          <div className="courses-header">
+            <BookOpen size={28} className="courses-icon" />
+            <h3>Courses & Certifications</h3>
+            <p>Continuous learning to stay ahead in the industry</p>
+          </div>
+
+          <div className="courses-grid">
+            {courses.map((course, index) => (
+              <motion.div
+                key={course.title}
+                className="course-card"
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+                whileHover={{ y: -5, boxShadow: '0 10px 30px rgba(99, 102, 241, 0.2)' }}
+              >
+                <div className="course-header">
+                  <Award size={24} className="course-icon" />
+                  <span className="course-year">{course.year}</span>
+                </div>
+                <h4 className="course-title">{course.title}</h4>
+                <p className="course-platform">{course.platform}</p>
+                <div className="course-skills">
+                  {course.skills.map((skill, idx) => (
+                    <span key={idx} className="skill-tag">
+                      <CheckCircle size={12} />
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -9,7 +9,8 @@ import {
   Film,
   Sparkles,
   Camera,
-  BarChart3
+  BarChart3,
+  Award
 } from 'lucide-react';
 import './Services.css';
 
@@ -157,18 +158,121 @@ const Services = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <div className="cta-content">
-            <TrendingUp size={48} className="cta-icon" />
-            <h3>Ready to elevate your social media presence?</h3>
-            <p>Let's work together to create content that drives results</p>
-            <motion.a
-              href="#contact"
-              className="btn btn-primary"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get Started
-            </motion.a>
+          <div className="cta-grid">
+            <div className="cta-left">
+              <motion.div
+                className="cta-badge"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.9 }}
+              >
+                <Sparkles size={20} />
+                <span>Let's Create Magic</span>
+              </motion.div>
+              <h3>Ready to Transform Your Brand?</h3>
+              <p>
+                Partner with me to create compelling content that resonates with your audience
+                and drives measurable results. From strategy to execution, I'll help bring your
+                vision to life.
+              </p>
+              <div className="cta-stats">
+                <div className="cta-stat">
+                  <TrendingUp size={24} />
+                  <div>
+                    <strong>50+</strong>
+                    <span>Successful Projects</span>
+                  </div>
+                </div>
+                <div className="cta-stat">
+                  <Award size={24} />
+                  <div>
+                    <strong>2M+</strong>
+                    <span>Total Reach</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="cta-right">
+              <div className="cta-features">
+                <motion.div
+                  className="cta-feature"
+                  whileHover={{ x: 10 }}
+                >
+                  <div className="feature-icon">
+                    <Video size={24} />
+                  </div>
+                  <div className="feature-content">
+                    <h4>Professional Quality</h4>
+                    <p>High-quality content that stands out</p>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  className="cta-feature"
+                  whileHover={{ x: 10 }}
+                >
+                  <div className="feature-icon">
+                    <TrendingUp size={24} />
+                  </div>
+                  <div className="feature-content">
+                    <h4>Proven Results</h4>
+                    <p>Data-driven strategies that work</p>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  className="cta-feature"
+                  whileHover={{ x: 10 }}
+                >
+                  <div className="feature-icon">
+                    <Lightbulb size={24} />
+                  </div>
+                  <div className="feature-content">
+                    <h4>Creative Solutions</h4>
+                    <p>Unique ideas tailored to your brand</p>
+                  </div>
+                </motion.div>
+              </div>
+
+              <motion.a
+                href="#contact"
+                className="cta-button"
+                whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(99, 102, 241, 0.4)' }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span>Start Your Project</span>
+                <TrendingUp size={20} />
+              </motion.a>
+            </div>
+          </div>
+
+          {/* Decorative Elements */}
+          <div className="cta-bg-elements">
+            <motion.div
+              className="cta-circle cta-circle-1"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.2, 0.3, 0.2],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            />
+            <motion.div
+              className="cta-circle cta-circle-2"
+              animate={{
+                scale: [1, 1.3, 1],
+                opacity: [0.15, 0.25, 0.15],
+              }}
+              transition={{
+                duration: 10,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            />
           </div>
         </motion.div>
       </div>

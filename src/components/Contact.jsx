@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Instagram, Linkedin } from 'lucide-react';
 import './Contact.css';
 
 const Contact = () => {
@@ -63,102 +63,37 @@ const Contact = () => {
 
   const socialLinks = [
     { icon: <Instagram size={20} />, name: 'Instagram', url: 'https://instagram.com', color: '#E4405F' },
-    { icon: <Linkedin size={20} />, name: 'LinkedIn', url: 'https://linkedin.com', color: '#0077B5' },
-    { icon: <Twitter size={20} />, name: 'Twitter', url: 'https://twitter.com', color: '#1DA1F2' }
+    { icon: <Linkedin size={20} />, name: 'LinkedIn', url: 'https://linkedin.com', color: '#0077B5' }
   ];
 
   return (
     <section id="contact" className="contact section" ref={ref}>
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          className="contact-header"
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
           <h2 className="section-title">
-            Get In <span className="gradient-text">Touch</span>
+            Let's Work <span className="gradient-text">Together</span>
           </h2>
           <p className="section-subtitle">
-            Let's collaborate and create something amazing together
+            Have a project in mind? Let's discuss how we can collaborate
           </p>
         </motion.div>
 
-        <div className="contact-content">
+        <div className="contact-wrapper">
           <motion.div
-            className="contact-info-section"
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="contact-intro">
-              <h3>Let's talk about your project</h3>
-              <p>
-                I'm always open to discussing new projects, creative ideas, or opportunities
-                to be part of your vision. Feel free to reach out through any of the channels below.
-              </p>
-            </div>
-
-            <div className="contact-info-cards">
-              {contactInfo.map((info, index) => (
-                <motion.div
-                  key={info.title}
-                  className="info-card"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(99, 102, 241, 0.3)' }}
-                >
-                  <div className="info-icon">{info.icon}</div>
-                  <div className="info-content">
-                    <h4>{info.title}</h4>
-                    {info.link ? (
-                      <a href={info.link} className="info-value">{info.value}</a>
-                    ) : (
-                      <p className="info-value">{info.value}</p>
-                    )}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div
-              className="social-links"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <h4>Follow Me</h4>
-              <div className="social-buttons">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-btn"
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.3, delay: 0.7 + index * 0.1 }}
-                    whileHover={{ scale: 1.1, backgroundColor: social.color }}
-                  >
-                    {social.icon}
-                    <span>{social.name}</span>
-                  </motion.a>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            className="contact-form-section"
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            className="contact-main"
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.2 }}
           >
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-row">
                 <div className="form-group">
-                  <label htmlFor="name">Your Name</label>
+                  <label htmlFor="name">Name</label>
                   <input
                     type="text"
                     id="name"
@@ -166,12 +101,12 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    placeholder="John Doe"
+                    placeholder="Your name"
                   />
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="email">Your Email</label>
+                  <label htmlFor="email">Email</label>
                   <input
                     type="email"
                     id="email"
@@ -179,7 +114,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    placeholder="john@example.com"
+                    placeholder="your@email.com"
                   />
                 </div>
               </div>
@@ -193,7 +128,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  placeholder="How can I help you?"
+                  placeholder="Project inquiry"
                 />
               </div>
 
@@ -205,7 +140,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows="6"
+                  rows="5"
                   placeholder="Tell me about your project..."
                 />
               </div>
@@ -228,7 +163,7 @@ const Contact = () => {
                   </>
                 ) : (
                   <>
-                    <Send size={20} />
+                    <Send size={18} />
                     <span>Send Message</span>
                   </>
                 )}
@@ -237,31 +172,76 @@ const Contact = () => {
               {submitStatus === 'success' && (
                 <motion.div
                   className="success-message"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
                 >
-                  Thank you! Your message has been sent successfully.
+                  Message sent successfully! I'll get back to you soon.
                 </motion.div>
               )}
             </form>
           </motion.div>
-        </div>
-      </div>
 
-      <footer className="footer">
-        <div className="container">
           <motion.div
-            className="footer-content"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            className="contact-sidebar"
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.3 }}
           >
-            <p>&copy; 2024 Your Name. All rights reserved.</p>
-            <p className="footer-tagline">Crafted with passion and creativity</p>
+            <div className="contact-info">
+              <h3 className="info-title">Get in Touch</h3>
+              <div className="info-items">
+                {contactInfo.map((info, index) => (
+                  <motion.div
+                    key={info.title}
+                    className="info-item"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                  >
+                    <div className="info-icon">{info.icon}</div>
+                    <div className="info-text">
+                      <span className="info-label">{info.title}</span>
+                      {info.link ? (
+                        <a href={info.link} className="info-value">{info.value}</a>
+                      ) : (
+                        <span className="info-value">{info.value}</span>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <motion.div
+              className="social-wrapper"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.7 }}
+            >
+              <h3 className="social-title">Follow Me</h3>
+              <div className="social-links">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="social-link"
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ duration: 0.3, delay: 0.8 + index * 0.1 }}
+                    whileHover={{ scale: 1.1, y: -3 }}
+                  >
+                    {social.icon}
+                    <span>{social.name}</span>
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
         </div>
-      </footer>
+      </div>
     </section>
   );
 };
